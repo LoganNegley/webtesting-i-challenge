@@ -14,7 +14,9 @@ function fail(item) {
 }
 
 function repair(item) {
-  return { ...item };
+  const {name, enhancement, durability} = item;
+  if(item.durability < 100)
+  return { ...item, durability:100 };
 }
 
 function get(item) {
