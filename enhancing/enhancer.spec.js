@@ -53,23 +53,23 @@ describe('enhancer.succeed()', () =>{
 // Test for enhancement fail
 describe('enhancer.fail()', () =>{
     it('shoulde return an item with durability and accasional enhancement adjustments ', () =>{
-        expect(enhance.fail({name: "knife", durability:10, enhancement: 10}))
+        expect(enhancer.fail({name: "knife", durability:10, enhancement: 10}))
         .toEqual({
             name:"knife",
             durability:5,
             enhancement:10
         })
-        expect(enhancer.succeed({name:'boat', durability: 99, enhancement: 18}))
+        expect(enhancer.fail({name:'boat', durability: 99, enhancement: 18}))
         .toEqual({
             name:'boat',
             durability:89,
-            enhancement:18
+            enhancement:17
         })
-        expect(enhancer.succeed({name: 'gun', durability: 1, enhancement: 17}))
+        expect(enhancer.fail({name: 'gun', durability: 55, enhancement: 16}))
         .toEqual({
             name:'gun',
-            durability:1,
-            enhancement: 16
+            durability:45,
+            enhancement: 15
         })
         
     })
