@@ -26,24 +26,24 @@ describe('enhancer.repair()', () =>{
 })
 
 // Test for enhancement success
-describe('enhancer.success()', () =>{
-    it('should increase enhancement by 1', () =>{
-        expect(enhancer.success({name: "knife", durability:10, enhancement: 10}))
-        .toBe({
+describe('enhancer.succeed()', () =>{
+    it('should increase enhancement by 1 and no more than 20', () =>{
+        expect(enhancer.succeed({name: "knife", durability:10, enhancement: 10}))
+        .toEqual({
             name:"knife",
-            durability:100,
+            durability:10,
             enhancement:11
         })
-        expect(enhancer.success({name:'boat', durability: 99, enhancement: 20}))
-        .toBe({
+        expect(enhancer.succeed({name:'boat', durability: 99, enhancement: 18}))
+        .toEqual({
             name:'boat',
-            durability:100,
-            enhancement:21
+            durability:99,
+            enhancement:19
         })
-        expect(enhancer.success({name: 'gun', durability: 1, enhancement: 15}))
-        .toBe({
+        expect(enhancer.succeed({name: 'gun', durability: 1, enhancement: 15}))
+        .toEqual({
             name:'gun',
-            durability:100,
+            durability:1,
             enhancement: 16
         })
         
